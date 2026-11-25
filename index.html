@@ -638,7 +638,18 @@ function revealSound() {
 }
 
 // VOICE REVEAL
-function speakRoast() {
+const roastAudio = new
+  Audio("roast.mp3");
+
+  roastAudio.preload ="auto";
+
+  functionspeakRoast() {
+    roastAudio.currentTime = 0;
+    roastAudio.play().catch(error =>
+      {
+        console.log("Audio playbackfailed:", error);
+      });
+  }
   if(!("speechSynthesis" in window)) return;
 
   window.speechSynthesis.cancel();
